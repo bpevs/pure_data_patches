@@ -1,0 +1,33 @@
+#N canvas 787 178 645 511 10;
+#X obj 100 100 cnv 30 29 29 empty empty empty 30 30 0 14 -128992 -66577
+0;
+#X obj 102 103 tgl 25 0 empty \$0record_rcv R 6 13 0 20 -143491 -143491
+-166441 0 1;
+#X obj 185 151 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 204 151 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 185 330 s \$0record_rcv;
+#X obj 232 208 t b f;
+#X msg 184 191 13;
+#X obj 185 268 pack 0 0 0;
+#X msg 185 296 color \$1 \$2 1;
+#X msg 204 174 23;
+#X obj 185 128 sel 1 0;
+#X obj 102 156 outlet;
+#X text 290 329 Changes color of the button via send;
+#X connect 1 0 10 0;
+#X connect 1 0 11 0;
+#X connect 2 0 6 0;
+#X connect 3 0 9 0;
+#X connect 5 0 7 0;
+#X connect 5 1 7 1;
+#X connect 6 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 5 0;
+#X connect 9 0 7 0;
+#X connect 10 0 2 0;
+#X connect 10 1 3 0;
+#X coords 0 -1 1 1 30 30 2 100 100;

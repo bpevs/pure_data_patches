@@ -1,0 +1,16 @@
+#N canvas 967 297 606 460 10;
+#X obj 103 101 hsl 60 25 0 100 0 0 empty empty Volume 12 12 0 10 -66577
+-204786 -191407 0 1;
+#X obj 41 171 inlet~;
+#X obj 41 217 outlet~;
+#X obj 100 132 dbtorms;
+#X obj 100 178 line~;
+#X obj 41 194 *~;
+#X obj 100 155 pack 0 30;
+#X connect 0 0 3 0;
+#X connect 1 0 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 1;
+#X connect 5 0 2 0;
+#X connect 6 0 4 0;
+#X coords 0 -1 1 1 66 26 2 100 100;

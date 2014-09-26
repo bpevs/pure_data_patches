@@ -1,0 +1,256 @@
+#N canvas 296 18 1262 883 10;
+#X obj 315 345 bng 20 250 50 0 empty empty empty 17 7 0 10 -228856
+-1 -1;
+#X obj 141 201 cnv 15 210 165 empty empty empty 20 12 0 14 -162280
+-66577 0;
+#X obj 146 205 cnv 15 200 140 empty empty empty 20 12 0 14 -191407
+-66577 0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-Sound 100 float 3;
+#A 0 0.00469278 0.0221766 0.0433495 0.0665091 0.0897496 0.111251 0.129546
+0.143733 0.153593 0.159614 0.162899 0.164993 0.167636 0.172502 0.180939
+0.193768 0.211151 0.232571 0.25691 0.282602 0.307887 0.331067 0.350765
+0.36614 0.377028 0.383967 0.388137 0.391189 0.395 0.40139 0.411841
+0.427258 0.447803 0.472849 0.501034 0.530445 0.558881 0.584177 0.604542
+0.618848 0.626856 0.629309 0.627889 0.625042 0.62367 0.626735 0.636831
+0.655756 0.684169 0.721362 0.765195 0.812203 0.857876 0.897095 0.924655
+0.935845 0.926997 0.895942 0.842334 0.767773 0.675726 0.571251 0.460538
+0.350337 0.247313 0.157414 0.0853234 0.0340448 0.00467476 -0.00362539
+0.0065546 0.031231 0.0655137 0.104172 0.142202 0.175337 0.200444 0.215758
+0.220948 0.217005 0.205983 0.19062 0.173918 0.158703 0.147261 0.141053
+0.140578 0.145363 0.154098 0.164877 0.175507 0.183847 0.18812 0.187158
+0.180553 0.168688 0.152651 0.134056 0.114784 0.0966958;
+#X coords 0 1 99 -1 200 140 2 0 0;
+#X restore 146 205 graph;
+#X obj 141 200 cnv 1 10 3 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 341 201 cnv 1 10 3 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X symbolatom 318 347 4 0 0 0 - - -;
+#X msg 389 273 L;
+#X obj 361 306 symbol;
+#X obj 361 330 makefilename %s;
+#X msg 417 273 R;
+#X msg 361 273 L/R;
+#X obj 361 211 r \$0-L/R;
+#X obj 389 233 r \$0-L;
+#X obj 417 254 r \$0-R;
+#X obj 315 373 s \$0-hidden_button;
+#X obj 491 30 cnv 15 450 400 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 500 103 r \$0-L/R;
+#X obj 500 209 r \$0-L;
+#X obj 500 181 s \$0-dislay_L;
+#X obj 588 181 s \$0-dislay_R;
+#X obj 500 287 s \$0-dislay_L;
+#X obj 588 287 s \$0-dislay_R;
+#X msg 500 266 1;
+#X msg 588 266 0;
+#X msg 588 160 0.5;
+#X msg 500 160 0.5;
+#X obj 500 393 s \$0-dislay_L;
+#X obj 588 393 s \$0-dislay_R;
+#X obj 500 315 r \$0-R;
+#X msg 500 372 0;
+#X msg 588 372 1;
+#X text 602 103 For both inputs \, it multiplies each output by 0.5
+\, so it will fit in the graph;
+#X text 584 211 if it's only the left input \, it will multiply the
+right by 0 \, and keep the left at full volume.;
+#X text 579 317 if it's only the right input \, it will multiply the
+left by 0 \, and keep the right at full volume.;
+#X text 531 45 The Graph multiplies the inputs before sending them
+to tabwrite \, in order to show either the left or right input;
+#X obj 491 439 cnv 15 450 380 empty empty empty 20 12 0 14 -203904
+-66577 0;
+#X obj 693 516 inlet~;
+#X obj 817 516 inlet~;
+#X obj 693 664 tabwrite~ \$0-Sound;
+#X obj 693 564 *~;
+#X obj 818 572 *~;
+#X obj 708 544 r \$0-dislay_L;
+#X obj 833 552 r \$0-dislay_R;
+#X obj 693 621 +~;
+#X obj 558 628 metro;
+#X obj 558 493 loadbang;
+#X obj 558 519 t b b;
+#X obj 558 649 bng 15 250 50 0 empty empty empty 17 7 0 10 -228856
+-1 -1;
+#X obj 969 32 cnv 15 250 300 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 998 220 sel 0 1 2;
+#X obj 998 172 f;
+#X obj 1025 172 + 1;
+#X obj 998 195 mod 3;
+#X obj 998 114 loadbang;
+#X obj 998 285 s \$0-L/R;
+#X obj 1015 265 s \$0-L;
+#X obj 1032 244 s \$0-R;
+#X obj 998 148 r \$0-hidden_button;
+#X text 989 55 Selects between the left and right;
+#X text 990 68 inputs;
+#X text 763 615 multiplies by the numbers;
+#X text 762 628 selected in the green box;
+#X floatatom 166 348 3 0 0 0 - - -;
+#X obj 166 407 s \$0-speed_out;
+#X obj 585 598 r \$0-speed_out;
+#X obj 585 567 s \$0-speed_in;
+#X obj 166 377 r \$0-speed_in;
+#X obj 60 32 cnv 15 400 90 empty empty Graph 100 45 1 50 -261682 -66577
+0;
+#X obj 506 567 s \$0-tog_in;
+#X obj 506 598 r \$0-tog_out;
+#X obj 147 349 tgl 14 0 empty empty empty 17 7 0 10 -228856 -1 -1 1
+1;
+#X obj 41 363 s \$0-tog_out;
+#X obj 41 332 r \$0-tog_in;
+#X text 521 57 comment;
+#X obj 732 705 inlet;
+#X obj 732 726 s \$0-hidden_button;
+#X text 770 705 allows the user to push the;
+#X text 846 715 graph left or;
+#X text 845 726 right using an;
+#X text 845 738 inlet.;
+#X text 528 459 Automatically keeps;
+#X text 538 471 the graph moving;
+#X text 521 580 pause;
+#X text 593 581 graph speed;
+#X text 41 346 to blue box;
+#X text 172 391 to blue box;
+#X text 332 388 to red box;
+#X obj 239 200 cnv 1 10 3 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 240 200 cnv 1 8 2 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 56 440 cnv 15 400 380 empty empty Operation: 20 12 1 20 -232576
+-66577 0;
+#X obj 309 698 bng 20 250 50 0 empty empty empty 17 7 0 10 -228856
+-1 -1;
+#X obj 135 554 cnv 15 210 165 empty empty empty 20 12 0 14 -162280
+-66577 0;
+#X obj 140 558 cnv 15 200 140 empty empty empty 20 12 0 14 -191407
+-66577 0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-Diagram 100 float 3;
+#A 0 -0.12409 -0.107523 -0.091888 -0.0772745 -0.063751 -0.0513816 -0.0402386
+-0.0303582 -0.0218174 -0.0146297 -0.00885612 -0.00450218 -0.00160396
+-0.000169039 -0.000202715 -0.0017145 -0.0046795 -0.00910911 -0.0149555
+-0.022215 -0.0308274 -0.0407665 -0.0519751 -0.064398 -0.077981 -0.0926416
+-0.108329 -0.12494 -0.142416 -0.160645 -0.179551 -0.199029 -0.21898
+-0.239306 -0.259891 -0.280644 -0.301432 -0.322169 -0.342722 -0.362992
+-0.38286 -0.402217 -0.420954 -0.438956 -0.456127 -0.472345 -0.487525
+-0.501554 -0.514349 -0.525813 -0.535863 -0.544419 -0.5514 -0.556743
+-0.560373 -0.562238 -0.562282 -0.560468 -0.556753 -0.551109 -0.543512
+-0.533946 -0.522403 -0.50888 -0.49338 -0.475923 -0.456531 -0.435236
+-0.412074 -0.387091 -0.36034 -0.331878 -0.301777 -0.270098 -0.236933
+-0.202362 -0.166484 -0.129392 -0.0911913 -0.0519914 -0.011899 0.0289586
+0.0704765 0.112513 0.154957 0.197666 0.240517 0.283374 0.326103 0.368576
+0.410647 0.452201 0.493079 0.533176 0.572345 0.610471 0.647425 0.683086
+0.717346 0.750077;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 140 558 graph;
+#X obj 135 553 cnv 1 10 3 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 335 554 cnv 1 10 3 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X symbolatom 312 700 4 0 0 0 - - -;
+#X floatatom 160 701 3 0 0 0 - - -;
+#X obj 141 702 tgl 14 0 empty empty empty 17 7 0 10 -228856 -1 -1 0
+1;
+#X obj 233 553 cnv 1 10 3 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 234 553 cnv 1 8 2 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X text 107 719 pause |;
+#X text 143 715 ^;
+#X text 170 741 which the graph changes;
+#X text 163 729 |;
+#X text 163 719 |;
+#X text 151 713 comment;
+#X text 163 715 ^;
+#X text 169 731 controls the speed at;
+#X text 163 739 |;
+#X text 348 701 <- Shows which;
+#X text 365 712 input is being;
+#X text 366 723 displayed.;
+#X text 322 716 ^;
+#X text 322 720 |;
+#X text 322 730 |;
+#X text 322 740 |;
+#X text 322 750 |;
+#X text 248 763 To switch between left and right;
+#X text 249 778 inputs \, you can click the symbol;
+#X text 249 791 box.;
+#X text 727 481 The audio inlets;
+#X text 704 499 L;
+#X text 831 498 R;
+#X text 206 346 Graph-O-Matic;
+#X text 197 699 Graph-O-Matic;
+#X text 54 823 Designed by: Benjamin Pevsner 2012;
+#X obj 144 139 cnv 15 100 60 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X text 62 539 Left input;
+#X text 71 541 _________;
+#X text 125 546 >;
+#X text 352 541 _________;
+#X text 356 539 Right input;
+#X text 346 546 <;
+#X text 168 471 You can also change;
+#X text 169 483 which imput is being shown;
+#X text 170 496 by banging the middle inlet.;
+#X text 234 519 |;
+#X text 234 529 |;
+#X text 234 509 |;
+#X text 234 536 v;
+#X msg 585 541 100;
+#X connect 0 0 15 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 6 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X connect 12 0 11 0;
+#X connect 13 0 7 0;
+#X connect 14 0 10 0;
+#X connect 17 0 26 0;
+#X connect 17 0 25 0;
+#X connect 18 0 23 0;
+#X connect 18 0 24 0;
+#X connect 23 0 21 0;
+#X connect 24 0 22 0;
+#X connect 25 0 20 0;
+#X connect 26 0 19 0;
+#X connect 29 0 30 0;
+#X connect 29 0 31 0;
+#X connect 30 0 27 0;
+#X connect 31 0 28 0;
+#X connect 37 0 40 0;
+#X connect 38 0 41 0;
+#X connect 40 0 44 0;
+#X connect 41 0 44 1;
+#X connect 42 0 40 1;
+#X connect 43 0 41 1;
+#X connect 44 0 39 0;
+#X connect 45 0 48 0;
+#X connect 46 0 47 0;
+#X connect 47 0 69 0;
+#X connect 47 1 142 0;
+#X connect 48 0 39 0;
+#X connect 50 0 55 0;
+#X connect 50 1 56 0;
+#X connect 50 2 57 0;
+#X connect 51 0 52 0;
+#X connect 51 0 53 0;
+#X connect 52 0 51 1;
+#X connect 53 0 50 0;
+#X connect 54 0 51 0;
+#X connect 58 0 51 0;
+#X connect 63 0 64 0;
+#X connect 65 0 45 1;
+#X connect 67 0 63 0;
+#X connect 70 0 45 0;
+#X connect 71 0 72 0;
+#X connect 73 0 71 0;
+#X connect 75 0 76 0;
+#X connect 142 0 66 0;
+#X coords 0 -1 1 1 212 166 2 140 200;

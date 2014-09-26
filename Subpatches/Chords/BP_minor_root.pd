@@ -1,0 +1,28 @@
+#N canvas 277 310 626 487 10;
+#X obj 216 153 inlet;
+#X obj 216 336 outlet;
+#X obj 260 336 outlet;
+#X obj 304 336 outlet;
+#X floatatom 216 185 5 0 0 0 - - -;
+#X text 13 28 Ben Pevsner;
+#X floatatom 216 309 5 0 0 0 - - -;
+#X floatatom 260 309 5 0 0 0 - - -;
+#X floatatom 304 309 5 0 0 0 - - -;
+#X obj 69 72 cnv 15 400 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 12 11 Minor Chord Calculator;
+#X obj 260 246 * 1.2;
+#X obj 304 246 * 1.5;
+#X text 100 82 Takes in a frequency \, and outputs the three notes
+of a minor chord in root position \, using the base frequency as the
+root.;
+#X connect 0 0 4 0;
+#X connect 4 0 11 0;
+#X connect 4 0 12 0;
+#X connect 4 0 6 0;
+#X connect 6 0 1 0;
+#X connect 7 0 2 0;
+#X connect 8 0 3 0;
+#X connect 11 0 7 0;
+#X connect 12 0 8 0;
+#X coords 0 0 1 1 85 60 0;

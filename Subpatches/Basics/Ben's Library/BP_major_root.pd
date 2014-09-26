@@ -1,0 +1,28 @@
+#N canvas 451 239 626 487 10;
+#X obj 216 153 inlet;
+#X obj 216 331 outlet;
+#X obj 260 331 outlet;
+#X obj 304 331 outlet;
+#X floatatom 216 185 5 0 0 0 - - -;
+#X text 13 28 Ben Pevsner;
+#X text 12 11 Major Chord Calculator;
+#X floatatom 216 304 5 0 0 0 - - -;
+#X floatatom 260 304 5 0 0 0 - - -;
+#X floatatom 304 304 5 0 0 0 - - -;
+#X obj 69 72 cnv 15 400 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 100 82 Takes in a frequency \, and outputs the three notes
+of a major chord in root position \, using the base frequency as the
+root.;
+#X obj 260 248 * 1.25;
+#X obj 304 248 * 1.5;
+#X connect 0 0 4 0;
+#X connect 4 0 7 0;
+#X connect 4 0 12 0;
+#X connect 4 0 13 0;
+#X connect 7 0 1 0;
+#X connect 8 0 2 0;
+#X connect 9 0 3 0;
+#X connect 12 0 8 0;
+#X connect 13 0 9 0;
+#X coords 0 0 1 1 85 60 0;

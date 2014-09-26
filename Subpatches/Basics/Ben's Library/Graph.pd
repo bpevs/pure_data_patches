@@ -1,0 +1,70 @@
+#N canvas 696 99 1078 686 10;
+#X obj 445 377 inlet~;
+#X obj 496 375 inlet~;
+#X obj 446 496 +~;
+#X obj 154 512 tabwrite~ \$0-Sound;
+#X obj 185 420 metro;
+#X obj 141 185 cnv 15 210 210 empty empty empty 20 12 0 14 -162280
+-66577 0;
+#X obj 146 189 cnv 15 200 140 empty empty empty 20 12 0 14 -191407
+-66577 0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-Sound 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 146 188 graph;
+#X text 204 370 Auto-Refresh;
+#X floatatom 290 371 5 0 0 0 - - -;
+#X text 323 370 Spd;
+#X obj 645 189 inlet;
+#X obj 185 371 tgl 15 0 empty empty empty 17 7 0 10 -228856 -1 -1 1
+1;
+#X obj 141 184 cnv 1 10 3 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 341 185 cnv 1 10 3 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 239 184 cnv 1 10 3 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 132 147 Input 1;
+#X text 227 143 Input 2;
+#X floatatom 255 337 5 0 2 0 - - -;
+#X obj 445 416 *~;
+#X obj 497 416 *~;
+#X msg 599 399 1;
+#X msg 649 425 1;
+#X msg 580 378 0;
+#X msg 649 460 0;
+#X msg 669 490 0.5;
+#X obj 630 353 sel 1 2;
+#X text 184 336 Show input:;
+#X obj 342 185 cnv 1 8 2 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X text 613 162 Message Left/right;
+#X obj 154 371 bng 15 250 50 0 empty empty empty 17 7 0 10 -228856
+-1 -1;
+#X connect 0 0 19 0;
+#X connect 1 0 20 0;
+#X connect 2 0 3 0;
+#X connect 4 0 3 0;
+#X connect 9 0 4 1;
+#X connect 11 0 18 0;
+#X connect 12 0 4 0;
+#X connect 18 0 26 0;
+#X connect 19 0 2 0;
+#X connect 20 0 2 1;
+#X connect 21 0 19 1;
+#X connect 22 0 20 1;
+#X connect 23 0 20 1;
+#X connect 24 0 19 1;
+#X connect 25 0 20 1;
+#X connect 25 0 19 1;
+#X connect 26 0 21 0;
+#X connect 26 0 23 0;
+#X connect 26 1 22 0;
+#X connect 26 1 24 0;
+#X connect 26 2 25 0;
+#X connect 30 0 3 0;
+#X coords 0 -1 1 1 212 212 1 140 184;

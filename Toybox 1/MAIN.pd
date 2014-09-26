@@ -1,0 +1,59 @@
+#N canvas 102 41 1425 919 10;
+#X obj 693 115 BP_waveshaper;
+#X obj 830 308 BP_viewer;
+#X floatatom 693 91 5 0 0 0 - - -;
+#X text 528 251 the harmonics as a list ->;
+#X floatatom 934 284 5 0 0 0 - - -;
+#X obj 1038 116 BP_waveshaper;
+#X floatatom 1038 92 5 0 0 0 - - -;
+#X obj 692 51 loadbang;
+#X obj 1038 49 loadbang;
+#X text 1056 454 <- click to switch input;
+#X text 1101 469 (you can also switch with the;
+#X text 1112 483 number box on top.);
+#X text 703 457 Controls the metro->;
+#X text 501 239 Outputs the wave as audio \, and;
+#X text 563 158 Change Harmonics;
+#X obj 41 72 cnv 15 370 220 empty empty README 20 12 0 30 -261234 -66577
+0;
+#X text 50 155 All of the abstractions are annotated inside \, with
+instructions on how to use them and how I made them \, so feel free
+to take a look.;
+#X text 26 414 Other waves input->;
+#X text 555 416 <- adsr input;
+#X text 51 195 If you don't want to look inside \, the synth uses keyboard
+inputs a-k for notes \, z/x for octave control \, and c/v to control
+the speed of the vibrato.;
+#X text 51 271 -Benjamin Pevsner;
+#X obj 380 71 bx_dsp;
+#X obj 380 43 loadbang;
+#X msg 692 71 110;
+#X msg 1038 70 220;
+#X text 564 185 Really fun to play;
+#X text 564 171 w/ radio \, slider. ->;
+#X text 565 199 with.;
+#X obj 151 425 BP_midisynth;
+#X obj 151 549 BP_looper;
+#X text 52 119 To the right is the signal display \, and a two waveshapers
+of my design. Below is a synth and looper.;
+#X text 50 237 No guarantees if you use any looper besides looper_0.
+That works about 60% of the time.;
+#X obj 151 663 BP_output;
+#X obj 242 645 loadbang;
+#X obj 829 511 BP_output;
+#X connect 0 0 1 0;
+#X connect 1 0 34 0;
+#X connect 1 1 34 2;
+#X connect 2 0 0 0;
+#X connect 4 0 1 1;
+#X connect 5 0 1 2;
+#X connect 6 0 5 0;
+#X connect 7 0 23 0;
+#X connect 8 0 24 0;
+#X connect 22 0 21 0;
+#X connect 23 0 2 0;
+#X connect 24 0 6 0;
+#X connect 28 0 29 0;
+#X connect 28 0 32 0;
+#X connect 29 0 32 0;
+#X connect 33 0 32 1;
